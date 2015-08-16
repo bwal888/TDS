@@ -1,0 +1,195 @@
+<link href='http://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+<div style="margin-top: 2em">
+
+	<div style=" position: relative; font-family: arial,sans-serif;float: left; width: 80%
+	">
+
+
+		<div
+				style="  min-height: 8px; border-color: black; border-top: 2px solid black; border-bottom: 3px solid black; line-height: 1px; margin-top: 1em; height: 1px;">
+          <span
+		          style="background-color: white; font-weight: bold; position: relative; top: -2px; margin-left: 75%;  font-size: 25px; padding: 6px;">
+               Quotation
+          </span>
+		</div>
+
+		<br>
+
+		<div style="  padding: 2px;">
+			<div style="padding-left: 1em; border: 2px solid black;height: 12em">
+				<div style="float: left; width: 40%;">
+					<p>{{vm.QuoteService.thisCustomer.co_name}}&nbsp;</p>
+
+					<p>{{vm.QuoteService.thisCustomer.co_addr1}}&nbsp;</p>
+
+					<p>{{vm.QuoteService.thisCustomer.co_addr2}}&nbsp;</p>
+
+					<p>{{vm.QuoteService.thisCustomer.co_addr3}}&nbsp;</p>
+
+					<p>{{vm.QuoteService.thisCustomer.co_addr4}}&nbsp;</p>
+				</div>
+
+				<div style="float: left;  width: 15%">
+					<p>Date</p>
+
+					<p>Quote No</p>
+
+					<p>Telephone</p>
+
+					<p>Mobile</p>
+
+					<p>Email</p>
+				</div>
+				<div style="float: left;  Zwidth: 40%">
+					<p> {{vm.QuoteService.thisQuote.q_date}}&nbsp;</p>
+
+					<p> {{vm.QuoteService.thisQuote.q_id}}&nbsp;</p>
+
+					<p> {{vm.QuoteService.thisCustomer.co_phone}}&nbsp;</p>
+
+					<p> {{vm.QuoteService.thisCustomer.co_mobile}}&nbsp;</p>
+
+					<p> {{vm.QuoteService.thisCustomer.co_email}}</p>
+				</div>
+			</div>
+
+
+			<div style="">
+				<p>We have pleasure in submitting our quotation as follows: </p>
+
+				<p>{{vm.QuoteService.thisQuote.q_toptext}}</p>
+			</div>
+
+
+			<div style="position: relative; ">
+				<div>
+					<div style="width: 10%; text-align: right; padding-right: 4%; display: inline-block;" align="right"><b>Qty</b>
+					</div>
+					<div style="display: inline-block; "><b>Item Description</b></div>
+				</div>
+
+
+				<div ng-repeat="qi in vm.QuoteService.getThisQuoteItems() | orderBy : 'qi_seq_no' track by $index"
+				     style=" text-align: left;" align="left">
+					<div style="width: 10%; text-align: right; padding-right: 4%; display: inline-block; "
+					     align="right">
+						{{qi.qi_qty}}
+					</div>
+					<div style="display: inline-block; ">
+						{{qi.qi_description}}
+					</div>
+				</div>
+			</div>
+
+			<br>
+
+			<div style="">
+				{{vm.QuoteService.thisQuote.q_bottomtext}}
+			</div>
+
+
+			<div style=" align: center;  margin-left: 30%;">
+				<p><b><u>SUBJECT TO SITE VISIT</u></b></p>
+			</div>
+
+
+			<div>
+				<div>
+					<div style="float: left; width: 50%; font-weight: bold; margin-left: 5%">
+						Material Cost including VAT
+					</div>
+					<div
+							style="width: 6em; font-weight: bold; margin-left: 61%; border: 1px solid black;text-align: right;padding-right: 0.5em ">
+						{{vm.QuoteService.thisQuote.q_price_gross | currency : '£' : 2}}
+					</div>
+				</div>
+				<div style="margin-top: 1em">
+					<div style="float: left; width: 50%; font-weight: bold; margin-left: 5%">
+						Labour Cost direct to carpenter (no VAT)
+					</div>
+					<div
+							style="width: 6em; font-weight: bold; margin-left: 61%; border: 1px solid black;text-align: right;padding-right: 0.5em ">
+						{{vm.QuoteService.thisQuote.q_price_labour | currency : '£' : 2}}&nbsp;
+					</div>
+				</div>
+				<div style="margin-top: 1em">
+					<div style="float: left; width: 50%; font-weight: bold; margin-left: 5%">
+						Grand Total
+					</div>
+					<div
+							style="width: 6em; font-weight: bold; margin-left: 61%; border: 1px solid black;text-align: right;padding-right: 0.5em ">
+						{{vm.QuoteService.thisQuote.q_price_grand_total | currency : '£' : 2}}&nbsp;
+					</div>
+				</div>
+
+			</div>
+
+			{{Zvm.QuoteService.thisQuote}}
+			<div
+					style="margin-top: 2em; background-color: black;  height: 8px; border-top-width: 4px; border-bottom-width: 2px;"></div>
+
+
+			<div>
+				<div style="font-family:arial,sans-serif;width:100%;font-size:10px;line-height:90%">
+					<p><b>Door Construction</b><br>
+
+						Most of our external and internal doors are manufactured using engineered component parts, all with a view
+						to providing a product that offers a solid feel but with the advantages that engineering brings with
+						strength and stability. All engineered doors are faced with veneers and matching lippings.<br><br>
+						This is a quotation on the goods named, subject to the conditions noted below:<br>
+						1. The above quotation is based upon information and measurements provided by the client and subject to a
+						site visit.<br>
+						2. The above quotation does not include the removal of any of the clients existing property from the
+						premises.<br>
+						3. The above quotation does not include any decoration or making good of plaster work.<br>
+						All internal and external doors, frames should be painted directly after fitting failure to do so by the
+						client will negate any guarantee against warping.<br>
+						This quotation is valid for 30 days from the date shown and subject to availability</p>
+
+					<p><b>PAYMENT TERMS</b><br>
+						In full on completion of work. VAT is charged at 20%</p>
+
+					<p>Hours of Business: Monday to Friday 10:00am-5:00pm, Saturday 10:00am-1:00pm, Closed Sunday</p>
+				</div>
+			</div>
+
+
+			<div style="font-family: arial,sans-serif; font-size: 12px; line-height: 80%;">
+				<p>The Door Store is a trading name of Paul Winchester and Company Limited.
+					Company Number 5654118 registered in England </p>
+			</div>
+		</div>
+	</div>
+
+	<div ng-if="!vm.isPrintLayout()" style="Zfloat: right;
+	width: 130px;
+    margin-left: 82%;
+    background-repeat: no-repeat;
+    background-color: rgb(249, 149, 19);
+    color: white;
+    padding: 5px;
+		">
+		<div style="
+		text-shadow: 2px 2px grey;
+    font-family: 'Kaushan Script', cursive;
+    transform: scaleY(1.4);
+    border: 1px solid white;
+    line-height: 1.2em;
+    font-size: 50px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    padding: 0.1em;
+    ">
+			The<br>Door<br>Store
+		</div>
+		<div style="color:white; font-size: 14px; line-height: 1.5em ; padding: 1em;">
+			Alveston Place<br>
+			Oxford Street<br>
+			Leamington Spa<br>
+			Warwickshire<br>
+			CV32 4SL
+		</div>
+	</div>
+
+
+</div>
